@@ -14,11 +14,12 @@ public class Main {
             System.out.println("2. View Skills");
             System.out.println("3. Delete Skill");
             System.out.println("4. Search Skill");
-            System.out.println("5. Exit");
+            System.out.println("5. Update Skill");
+            System.out.println("6. Exit");
 
             System.out.print("Enter Choice : ");
             int choice = sc.nextInt();
-            sc.nextLine(); // Consume newline
+            sc.nextLine();
 
             switch (choice) {
 
@@ -47,10 +48,10 @@ public class Main {
                     manager.viewSkills();
 
                     System.out.print("Enter Skill Number to Delete : ");
-                    int num = sc.nextInt();
+                    int delete = sc.nextInt();
                     sc.nextLine();
 
-                    manager.deleteSkill(num - 1);
+                    manager.deleteSkill(delete - 1);
                     break;
 
                 case 4:
@@ -62,6 +63,23 @@ public class Main {
                     break;
 
                 case 5:
+
+                    manager.viewSkills();
+
+                    System.out.print("Enter Skill Number to Update : ");
+                    int update = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Enter New Skill Name : ");
+                    String newName = sc.nextLine();
+
+                    System.out.print("Enter New Skill Level : ");
+                    String newLevel = sc.nextLine();
+
+                    manager.updateSkill(update - 1, newName, newLevel);
+                    break;
+
+                case 6:
 
                     System.out.println("Thank You!");
                     sc.close();
